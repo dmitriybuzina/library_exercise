@@ -1,0 +1,16 @@
+// Place all the styles related to the books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.all-books {
+  h1 {
+    text-align: center;
+  }
+  table {
+    min-width: 100%;
+  }
+  a:link {
+    text-decoration: none;
+    text-decoration-color: black;
+  }
+}
