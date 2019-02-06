@@ -55,3 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #mongodb
 gem 'mongoid', '~> 7.0'
+
+#haml
+gem 'haml-rails', '~> 1.0'
