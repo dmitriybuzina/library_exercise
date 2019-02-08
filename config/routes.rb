@@ -5,10 +5,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
-
-  # devise_for :users do
-  #   get '/users/sign_out' => 'devise/sessions#destroy'
-  # end
-
-  resources :books
+  resources :books do
+    post 'new_history', on: :member
+    delete 'delete_history', on: :member
+  end
 end

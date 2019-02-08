@@ -1,2 +1,15 @@
 .show-book
-  =@book.name
+  %h1
+    .row
+      =@book.name
+      =@book.description
+  .row
+    .col-6
+      -if(@book.image)
+        =image_tag(@book.image, class: 'book-image')
+      -else
+        =image_tag('book-no-image.png')
+    .col-6
+      =button_to 'Take', new_history_book_path(@book, user: current_user), method: :post, class: 'btn btn-primary'
+      -#%p
+      -#  =@book.description
