@@ -1,0 +1,6 @@
+=form_with(model: @book, local: true) do |form|
+  =form.text_field :name
+  =form.text_field :author
+  =form.text_area :description
+  =form.file_field :image, placeholder: 'Choose file'
+  =form.submit
