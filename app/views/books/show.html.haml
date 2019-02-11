@@ -1,15 +1,39 @@
 .show-book
   %h1
-    .row
-      =@book.name
-      =@book.description
+    =@book.name
   .row
-    .col-6
-      -if(@book.image)
-        =image_tag(@book.image, class: 'book-image')
-      -else
-        =image_tag('book-no-image.png')
-    .col-6
-      =button_to 'Take', new_history_book_path(@book, user: current_user), method: :post, class: 'btn btn-primary'
-      -#%p
-      -#  =@book.description
+    .ml-auto
+      =button_to 'Take', new_history_book_path(@book, user: current_user), method: :post, class: 'btn btn-primary button-take'
+  .image-description
+    .row
+      .col-6
+        -if(@book.image)
+          =image_tag(@book.image, class: 'book-image')
+        -else
+          =image_tag('book-no-image.png')
+      .col-6
+        .description
+          %p
+            =@book.description
+  =render 'comments/comments', book: @book
+  =render 'comments/form'
+
+  .row
+    .col-12.col-sm-12
+      %table.table-hover.table-sm{ border: 1 }
+        %thead
+          %td
+            History
+        %tbody
+          - @histories.each do |history|
+            %tr{ scope: 'row' }
+              %td
+                =history.user.email
+              %td
+                =history.take
+              %td
+                -if(history.return)
+                  =history.return
+                -else
+                  Not returned
+

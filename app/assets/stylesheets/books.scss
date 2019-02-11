@@ -17,7 +17,26 @@
   }
 }
 
+.show-book {
+  margin-right: 3%;
+  margin-left: 3%;
+  h1 {
+    text-align: center;
+  }
+}
+
+.image-description {
+  margin-top: 5%;
+}
+
+.description {
+  margin-left: -8%;
+  max-height: 200px;
+  overflow-y: scroll;
+  margin-bottom: 10%;
+}
+
 .book-image {
-  width: 40%;
-  height: 40%;
+  width: 100%;
+  max-height: 200px;
 }

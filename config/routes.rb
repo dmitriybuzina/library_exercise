@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :books do
+    resources :comments
     post 'new_history', on: :member
     delete 'delete_history', on: :member
   end

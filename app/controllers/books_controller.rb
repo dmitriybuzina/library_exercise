@@ -22,7 +22,8 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
+    @comments = @book.comments
+    @histories = @book.histories
   end
 
   def destroy
@@ -34,20 +35,17 @@ class BooksController < ApplicationController
       @book.status = false
       redirect_to @book
     end
-
   end
 
   def delete_history
-
   end
 
   private
   def book_params
-    params.require(:book).permit(:name, :author, :image)
+    params.require(:book).permit(:name, :author, :image, :description)
   end
 
   def set_book
     @book = Book.find(params[:id])
   end
-
 end
