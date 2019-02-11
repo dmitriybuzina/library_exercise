@@ -1,0 +1,5 @@
+.container-comments
+  -@comments.each do |comment|
+    %p
+      =comment.user.email
+      =comment.body

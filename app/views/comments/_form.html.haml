@@ -1,0 +1,5 @@
+= form_with(model: [ @book, @book.comments.build ], remote: true, url: book_comments_path(book_id: @book.id)) do |form|
+  %p
+    %br
+      = form.text_area :body, class: 'form-control'
+      = form.submit 'Send comment', class: 'form-control'
