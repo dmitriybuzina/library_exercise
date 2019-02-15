@@ -59,7 +59,7 @@ gem 'mongoid', '~> 7.0'
 #haml
 gem 'haml-rails', '~> 1.0'
 
-#devise
+#users
 gem 'devise'
 
 #bootstrap
@@ -72,3 +72,6 @@ gem 'jquery-rails'
 #upload image
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mini_magick'
+
+#pagination
+gem 'kaminari-mongoid'

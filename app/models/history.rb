@@ -3,5 +3,5 @@ class History
   field :take, type: Time
   field :return, type: Time
   belongs_to :user
-  belongs_to :book
+  belongs_to :book, counter_cache: :counter
 end

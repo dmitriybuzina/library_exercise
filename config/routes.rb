@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'books#index'
+  root 'welcome#index'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
   resources :books do
     resources :comments
-    post 'new_history', on: :member
-    delete 'delete_history', on: :member
+    post 'take', on: :member
+    post 'return', on: :member
+    post 'new_like', on: :member
+    delete 'delete_like', on: :member
   end
 end
