@@ -1,0 +1,58 @@
+.all-books
+  .row
+    .col-12.col-sm-12
+      %h1
+        Top books
+  .row
+    .col-12.col-sm-12
+      %table.table-hover.table-sm{ border: 1 }
+        %thead
+          %tr
+            %th{scope: 'col'}
+              Name
+            %th{scope: 'col'}
+              Author
+            %th{scope: 'col'}
+              Status
+        %tbody
+          - @top_books.each do |book|
+            %tr{scope: 'row'}
+              %td
+                -if(book.name)
+                  =link_to(book.name, book_path(book))
+              %td
+                = book.author
+              %td
+                -if(book.status)
+                  In
+                -else
+                  Out
+  .row
+    .col-12.col-sm-12
+      %h1
+        All books
+  .row
+    .col-12.col-sm-12
+      %table.table-hover.table-sm{border: 1}
+        %thead
+          %tr
+            %th{scope: 'col'}
+              Name
+            %th{scope: 'col'}
+              Author
+            %th{scope: 'col'}
+              Status
+        %tbody
+          - @books.each do |book|
+            %tr{scope: 'row'}
+              %td
+                -if(book.name)
+                  =link_to(book.name, book_path(book))
+              %td
+                = book.author
+              %td
+                -if(book.status)
+                  In
+                -else
+                  Out
+=link_to 'Create book', new_book_path
