@@ -75,3 +75,5 @@ gem 'mini_magick'
 
 #pagination
 gem 'kaminari-mongoid'
+gem 'kaminari-actionview'
+gem 'bootstrap4-kaminari-views'

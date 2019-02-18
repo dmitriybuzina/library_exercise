@@ -54,15 +54,12 @@ class BooksController < ApplicationController
     if !@old_like.nil?
       @old_like.destroy
     end
-    respond_to do |format|
-      format.js
-    end
     @like = Like.new(user_id: current_user.id, book_id: params[:id], liking: params[:liking])
-    redirect_to @book if @like.save
+    @like.save
   end
 
   def delete_like
-    redirect_to book_path(id: @book.id) if @old_like.destroy
+    @old_like.destroy
   end
 
   private

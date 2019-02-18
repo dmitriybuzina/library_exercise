@@ -3,24 +3,8 @@
 //$('.progress').css('width', width + "%")"
 
 
-  width = <%= @book.like/(@book.like + @book.dislike) %>
-  $('#progress_first').css('width', width + "%")
-  width = <%= @book.dislike/(@book.like + @book.dislike) %>
-  $('#progress_second').css('width', width + "%")
+//  width = <%#= @book.like/(@book.like + @book.dislike) %>
+//  $('#progress_first').css('width', width + "%")
+//  width = <%#= @book.dislike/(@book.like + @book.dislike) %>
+//  $('#progress_second').css('width', width + "%")
 
-$('#like').html(
-    '<%= link_to(new_like_book_path(book_id: @book.id, user_id: current_user.id, liking: true), id: 'like', remote: true, method: :post) do
-         if @book.is_liked_by(current_user.id)
-          if @old_like.liking
-
-          end
-         end
-       end
-%>');
-
-$('#dislike').html(
-    <%= link_to(new_like_book_path(book_id: @book.id, user_id: current_user.id, liking: false), id: 'dislike', remote: true, method: :post) do
-
-    end
-
-%>);

@@ -1,34 +1,5 @@
--#-@books.each do |book|
--#  %br
--#  =render 'books/books', book: book
--#= paginate @books
-
 -@books.each do |book|
-  .container-books
-    .row
-      .col-6
-        =link_to image_tag(book.image, class: 'book-image'), book_path(book)
-      .col-6
-        %p
-          %strong
-            Title:
-          =book.name
-        %p
-          %strong
-            Author:
-          =book.author
-        -if(book.publishing_house)
-          %p
-            %strong
-              Publishing house:
-            =book.publishing_house
-        -if(book.year)
-          %p
-            %strong
-              Year:
-            =book.year
-        %p
-          .row
-            =button_to 'Delete', book_path(book), method: :delete, class: 'btn btn-primary'
-            =button_to 'Edit', edit_book_path(book), class: 'btn btn-primary'
-=paginate @books
+  %br
+  =render 'books/books', book: book
+= paginate @books, theme: 'twitter-bootstrap-4',pagination_class: "pagination-sm",
+                 class: 'pagination'

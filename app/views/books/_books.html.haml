@@ -24,4 +24,4 @@
       %p
         .row
           =button_to 'Delete', book_path(book), method: :delete, class: 'btn btn-primary'
-          =button_to 'Edit', edit_book_path(book), class: 'btn btn-primary'
+          =button_to 'Edit', edit_book_path(book), method: :get, class: 'btn btn-primary'

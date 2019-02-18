@@ -17,6 +17,8 @@ class Book
 
   mount_uploader :image, FileUploader
 
+  # paginates_per 5
+
   def is_taken_by(user_id)
     histories.where(user_id: user_id, return: nil).exists?
   end
