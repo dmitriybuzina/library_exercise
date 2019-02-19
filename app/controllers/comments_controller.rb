@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @book.comments.create(comment_params)
     @comment.user_id = current_user.id
-    redirect_to @book if @comment.save
+    render 'books/show' unless @comment.save
   end
 
   private

@@ -23,8 +23,9 @@ class BooksController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     @comments = @book.comments
-    @histories = @book.histories.order_by(return: :desc)
+    @histories = @book.histories.order_by(take: :desc)
   end
 
   def destroy
@@ -36,7 +37,7 @@ class BooksController < ApplicationController
     if @history.save
       @book.status = false
       @book.save
-      redirect_to @book
+      # redirect_to @book
     end
   end
 
@@ -46,7 +47,7 @@ class BooksController < ApplicationController
     if history.save
       @book.status = true
       @book.save
-      redirect_to @book
+      # redirect_to @book
     end
   end
 
