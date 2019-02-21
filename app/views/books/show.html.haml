@@ -18,14 +18,15 @@
           =link_to image_tag('like_before.png', size: '40x40', style: 'float: left', class: 'like-dislike'), new_like_book_path(book_id: @book.id, user_id: current_user.id, liking: true), method: :post, remote: true
           =link_to image_tag('dislike_before.png', size: '40x40', style: 'float: right', class: 'like-dislike'), new_like_book_path(book_id: @book.id, user_id: current_user.id, liking:false), method: :post, remote: true
     .col-6
-      -if(!@book.status)
-        -if(@book.is_taken_by(current_user.id))
-          =button_to 'Return', return_book_path(@book.id, user_id: current_user.id), class: 'btn btn-primary button-take'
-        -else
-          =button_to 'Busy', class: 'btn btn-primary button-take'
-      -else
-        =button_to 'Take', take_book_path(@book.id, user_id: current_user.id), method: :post, class: 'btn btn-primary button-take'
-
+      .book-action
+        =button_to "#{ @book.status ? 'Take' : @book.is_taken_by(current_user.id) ? 'Return' : 'Busy'}", take_return_book_path(@book), id: 'action-book', method: :post, remote: true, class: "btn btn-#{ @book.status ? 'primary' : 'secondary' }"
+        -#-if(!@book.status)
+        -#  -if(@book.is_taken_by(current_user.id))
+        -#    =button_to 'Return', return_book_path(@book.id, user_id: current_user.id), remote: true, class: 'btn btn-primary button-take', id: 'button-return'
+        -#  -else
+        -#    =button_to 'Busy', class: 'btn btn-primary button-take'
+        -#-else
+        -#  =button_to 'Take', take_book_path(@book.id, user_id: current_user.id),remote: true, method: :post, class: 'btn btn-primary button-take', id: 'button-take'
   .image-description
     .row
       .col-6
@@ -37,26 +38,13 @@
         .description
           %p
             =@book.description
-  =render 'comments/comments', book: @book
+  #book-comments
+    =render @book.comments
   =render 'comments/form'
 
   -if(@histories.length != 0)
-    .row
-      .col-12.col-sm-12
-        %table.table-hover.table-sm{ border: 1 }
-          %thead
-            %td{ align: 'center', colspan: '3' }
-              History
-          %tbody
-            - @histories.each do |history|
-              %tr{ scope: 'row' }
-                %td
-                  =history.user.email
-                %td
-                  =history.take
-                %td
-                  -if(history.return)
-                    =history.return
-                  -else
-                    Not returned
+    #book-histories
+      .row
+        .col-12.col-sm-12
+          =render 'books/histories', histories: @histories
 

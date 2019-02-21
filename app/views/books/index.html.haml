@@ -1,5 +1,4 @@
--@books.each do |book|
-  %br
-  =render 'books/books', book: book
-= paginate @books, theme: 'twitter-bootstrap-4',pagination_class: "pagination-sm",
-                 class: 'pagination'
+.container-books
+  =render 'books/books', books: @books
+  = paginate @books, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm",
+                  class: 'pagination'

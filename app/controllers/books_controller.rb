@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [ :show, :edit, :update, :destroy, :take, :return, :new_like, :delete_like ]
+  before_action :set_book, only: [ :show, :edit, :update, :destroy, :take_return, :new_like, :delete_like ]
   before_action :find_like, only: [ :new_like, :delete_like, :show ]
 
   def index
@@ -29,26 +29,25 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    redirect_to books_path if @book.destroy
+    @book.destroy
+    respond_to do |f|
+      f.html
+      f.js
+    end
   end
 
-  def take
-    @history = History.new(user_id: current_user.id, book_id: @book.id, take: Time.now)
+  def take_return
+    if @book.status
+      @history = History.new(user_id: current_user.id, book_id: @book.id, take: Time.now)
+    else
+      @history = History.where(user_id: current_user.id, book_id: params[:id]).last
+      @history.return = Time.now
+    end
     if @history.save
-      @book.status = false
+      @book.status = !@book.status
       @book.save
-      # redirect_to @book
     end
-  end
-
-  def return
-    history = History.where(user_id: params[:user_id], book_id: params[:id]).last
-    history.return = Time.now
-    if history.save
-      @book.status = true
-      @book.save
-      # redirect_to @book
-    end
+    @histories = @book.histories.order_by(take: :desc)
   end
 
   def new_like
@@ -75,5 +74,4 @@ class BooksController < ApplicationController
   def find_like
     @old_like = Like.where(user_id: current_user.id, book_id: params[:id]).first
   end
-
 end
