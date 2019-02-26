@@ -1,4 +1,5 @@
 .container-books
-  =render 'books/books', books: @books
+  -@books.each do |book|
+    =render 'books/books', book: book
   = paginate @books, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm",
                   class: 'pagination'

@@ -1,10 +1,9 @@
-//document.getElementById('progress').css('width', <%#= @book.like/(@book.like + @book.dislike) + '%' %>)
-//var width = <%#= @book.like/(@book.like + @book.dislike) %>)
-//$('.progress').css('width', width + "%")"
+console.log(<%= params[:liking]%>)
+<% if params[:liking] == true %>
+  $('#count-like label').html(<%= @book.like += 1 %>)
+<% elsif params[:liking] == false %>
+  $('#count-dislike label').html(<%= @book.dislike += 1 %>)
+<% end %>
 
-
-//  width = <%#= @book.like/(@book.like + @book.dislike) %>
-//  $('#progress_first').css('width', width + "%")
-//  width = <%#= @book.dislike/(@book.like + @book.dislike) %>
-//  $('#progress_second').css('width', width + "%")
-
+console.log(<%= @book.like %>)
+console.log(<%= @book.dislike %>)

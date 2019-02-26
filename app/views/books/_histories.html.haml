@@ -1,16 +1,17 @@
-%table.table-hover.table-sm.table-bordered
-  %thead
-    %td{ align: 'center', colspan: '3' }
-      History
-  %tbody
-    -@histories.each do |history|
-      %tr{ scope: 'row', id: 'row-history' }
-        %td
-          =history.user.email
-        %td
-          =history.take
-        %td
-          -if(history.return)
-            =history.return
-          -else
-            Not returned
+.table-wrapper-scroll-y
+  %table.table-hover.table-sm.table-bordered
+    %thead
+      %td{ align: 'center', colspan: '3' }
+        History
+    %tbody
+      -@histories.each do |history|
+        %tr{ scope: 'row', id: 'row-history' }
+          %td
+            =history.user.email
+          %td
+            =history.take
+          %td
+            -if(history.return)
+              =history.return
+            -else
+              Not returned

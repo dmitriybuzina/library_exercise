@@ -17,6 +17,10 @@
   }
 }
 
+.progress {
+  height: 3px;
+}
+
 .show-book {
   margin-right: 3%;
   margin-left: 3%;
@@ -71,4 +75,17 @@
 .pagination {
   margin-top: 3%;
   justify-content: center;
+}
+
+.count_like {
+  display: flex;
+  justify-content: space-between;
+}
+
+.grey {
+  background-color: #999999;
+}
+
+.blue {
+  background-color: cornflowerblue;
 }

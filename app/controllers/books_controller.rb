@@ -30,9 +30,8 @@ class BooksController < ApplicationController
 
   def destroy
     @book.destroy
-    respond_to do |f|
-      f.html
-      f.js
+    respond_to do |format|
+      format.js { render layout: false }
     end
   end
 

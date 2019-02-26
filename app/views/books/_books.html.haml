@@ -1,28 +1,26 @@
--books.each do |book|
-  #book
-  .row
-    .col-6
-      =link_to image_tag(book.image, class: 'book-image'), book_path(book)
-    .col-6
+.row{id: book.id}
+  .col-6
+    =link_to image_tag(book.image, class: 'book-image'), book_path(book)
+  .col-6
+    %p
+      %strong
+        Title:
+      =book.name
+    %p
+      %strong
+        Author:
+      =book.author
+    -if(book.publishing_house)
       %p
         %strong
-          Title:
-        =book.name
+          Publishing house:
+        =book.publishing_house
+    -if(book.year)
       %p
         %strong
-          Author:
-        =book.author
-      -if(book.publishing_house)
-        %p
-          %strong
-            Publishing house:
-          =book.publishing_house
-      -if(book.year)
-        %p
-          %strong
-            Year:
-          =book.year
-      %p
-        .row
-          =button_to 'Delete', book_path(book), method: :delete, class: 'btn btn-primary', remote: true
-          =button_to 'Edit', edit_book_path(book), method: :get, class: 'btn btn-primary'
+          Year:
+        =book.year
+    %p
+      .row
+        =button_to 'Delete', book_path(book), method: :delete, id: 'delete-book', class: 'btn btn-primary', remote: true
+        =button_to 'Edit', edit_book_path(book), method: :get, class: 'btn btn-primary'
