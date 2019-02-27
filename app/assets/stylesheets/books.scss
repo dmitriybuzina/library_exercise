@@ -89,3 +89,32 @@
 .blue {
   background-color: cornflowerblue;
 }
+
+.stars {
+  display: flex;
+}
+
+.star {
+  width: 40px;
+  height: 40px;
+}
+
+.star > label:before {
+  content: url("star.png");
+}
+
+//.star > input:hover ~ label {
+//  content: url("yellow_star.png");
+//}
+
+//.star:not(:checked) > label:hover ~ label { content: url("yellow_star.png"); }
+
+.star > input { display: none }
+//.stars > input {
+//  background-image: url("star.png");
+//}
+
+.star:hover,
+.star:hover ~ .star label {
+  content: url("yellow_star.png");
+}
