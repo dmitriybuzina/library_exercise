@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     post 'take_return', on: :member
     # post 'return', on: :member
     post 'new_like', on: :member
-    delete 'delete_like', on: :member
+    put 'delete_like', on: :member
   end
 end

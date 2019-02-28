@@ -92,6 +92,7 @@
 
 .stars {
   display: flex;
+  direction: rtl;
 }
 
 .star {
@@ -99,7 +100,9 @@
   height: 40px;
 }
 
-.star > label:before {
+.star > input { display: none }
+
+.star > label {
   content: url("star.png");
 }
 
@@ -109,12 +112,19 @@
 
 //.star:not(:checked) > label:hover ~ label { content: url("yellow_star.png"); }
 
-.star > input { display: none }
-//.stars > input {
-//  background-image: url("star.png");
-//}
+.star > label {
+  background-image: url("star.png");
+}
+
+.star > input:checked ~ label {
+  content: url("yellow_star.png");
+}
 
 .star:hover,
 .star:hover ~ .star label {
   content: url("yellow_star.png");
 }
+//
+//.stars > label:hover:before,
+//.stars > label:hover ~ label:before,
+//.stars:not(:hover) > :checked ~ label:before { opacity: 1; }

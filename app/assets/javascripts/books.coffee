@@ -9,3 +9,16 @@ $(window).on 'load', ->
   width_dislike = (count_dislike/(count_dislike + count_like)) * 100
   $('#progress_like').css('width', width_like + '%');
   $('#progress_dislike').css('width', width_dislike + '%');
+
+#submitedForm = ->
+#    $('#submitForm').trigger()
+#  console.log('hello')
+#  $('#star5').on('click', ->
+#    $('#submitForm').trigger()
+#  )
+
+submitedForm = ->
+  radio = document.querySelectorAll('input[type=radio]')
+  for r in radio
+    if t.checked
+      alert(r.value)

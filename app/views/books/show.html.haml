@@ -3,11 +3,12 @@
     =@book.name
   .row
     .col-7
-      .stars
-        -(1..5).each do |i|
-          .star
-            %input{ type: 'radio', id: "star#{i}"}
-            %label{ for: "star#{i}" }
+      =render 'form_rating'
+      -#.stars
+      -#  -(1..5).each do |i|
+      -#    .star
+      -#      %input{ type: 'radio', id: "star#{i}" }
+      -#      %label{ for: "star#{i}" }
 
       -#-if @book.is_liked_by(current_user.id)
       -#  -if @old_like.liking

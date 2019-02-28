@@ -53,7 +53,7 @@ class BooksController < ApplicationController
     if !@old_like.nil?
       @old_like.destroy
     end
-    @like = Like.new(user_id: current_user.id, book_id: params[:id], liking: params[:liking])
+    @like = Like.new(user_id: current_user.id, book_id: params[:id])
     @like.save
   end
 
