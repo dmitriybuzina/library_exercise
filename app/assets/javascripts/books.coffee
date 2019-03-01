@@ -17,8 +17,8 @@ $(window).on 'load', ->
 #    $('#submitForm').trigger()
 #  )
 
-submitedForm = ->
-  radio = document.querySelectorAll('input[type=radio]')
-  for r in radio
-    if t.checked
-      alert(r.value)
+#submitedForm = ->
+#  radio = document.querySelectorAll('input[type=radio]')
+#  for r in radio
+#    if t.checked
+#      alert(r.value)

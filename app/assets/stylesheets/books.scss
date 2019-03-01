@@ -91,40 +91,60 @@
 }
 
 .stars {
-  display: flex;
+  display: inline-block;
   direction: rtl;
 }
 
-.star {
-  width: 40px;
-  height: 40px;
-}
-
-.star > input { display: none }
-
-.star > label {
-  content: url("star.png");
-}
-
-//.star > input:hover ~ label {
-//  content: url("yellow_star.png");
+//.star {
+//  width: 40px;
+//  height: 40px;
 //}
 
-//.star:not(:checked) > label:hover ~ label { content: url("yellow_star.png"); }
-
-.star > label {
-  background-image: url("star.png");
-}
-
-.star > input:checked ~ label {
-  content: url("yellow_star.png");
-}
-
-.star:hover,
-.star:hover ~ .star label {
-  content: url("yellow_star.png");
-}
+//.stars > input { display: none }
 //
+//.stars > label {
+//  content: url("star.png");
+//}
+//
+////.star > input:hover ~ label {
+////  content: url("yellow_star.png");
+////}
+//
+//.stars:not(:checked) > label:hover ~ label { content: url("yellow_star.png"); }
+//
+//.stars > label {
+//  background-image: url("star.png");
+//}
+//
+//.stars > input:checked ~ label {
+//  content: url("yellow_star.png");
+//}
+//
+//.stars:hover,
+//.stars:hover ~ .star label {
+//  content: url("yellow_star.png");
+//}
+////
 //.stars > label:hover:before,
 //.stars > label:hover ~ label:before,
 //.stars:not(:hover) > :checked ~ label:before { opacity: 1; }
+//
+
+.stars > input {display: none;}  /* Remove radio buttons */
+
+.stars > label:before {
+  content: url("star.png"); /* Star */
+  //margin: 2px;
+  //display: inline-block;
+}
+
+.stars > label
+{
+  content: url("star.png"); /* Start color when not clicked */
+}
+
+.stars > input:checked ~ label
+{ content: url("yellow_star.png"); } /* Set yellow color when star checked */
+
+.stars > input:hover ~ label
+{ content: url("yellow_star.png");  } /* Set yellow color when star hover */

@@ -1,12 +1,12 @@
-$('#like').html(
-    <% if @book.is_liked_by(current_user.id)%>
-      <% if @old_like.liking%>
-        =link_to image_tag('like.png', size: '40x40', style: 'float: left', id: 'like', class: 'like-dislike'), delete_like_book_path(book_id: @book.id, user_id: current_user.id), method: :delete, remote: true
-        =link_to image_tag('dislike_before.png', size: '40x40', style: 'float: right', id: 'dislike', class: 'like-dislike'), new_like_book_path(book_id: @book.id, user_id: current_user.id, liking:false), method: :post, remote: true
-      -else
-        =link_to image_tag('like_before.png', size: '40x40', style: 'float: left', id: 'like', class: 'like-dislike'), new_like_book_path(book_id: @book.id, user_id: current_user.id, liking: true), method: :post, remote: true
-        =link_to image_tag('dislike.png', size: '40x40', style: 'float: right', id: 'dislike', class: 'like-dislike'), delete_like_book_path(book_id: @book.id, user_id: current_user.id), method: :delete, remote: true
-    -else
-      =link_to image_tag('like_before.png', size: '40x40', style: 'float: left', id: 'like', class: 'like-dislike'), new_like_book_path(book_id: @book.id, user_id: current_user.id, liking: true), method: :post, remote: true
-      =link_to image_tag('dislike_before.png', size: '40x40', style: 'float: right', id: 'dislike', class: 'like-dislike'), new_like_book_path(book_id: @book.id, user_id: current_user.id, liking:false), method: :post, remote: true
-%>')
+//$('#like').html(
+    <%# if @book.is_liked_by(current_user.id)%>
+      <%# if @old_like.liking%>
+//        =link_to image_tag('like.png', size: '40x40', style: 'float: left', id: 'like', class: 'like-dislike'), delete_like_book_path(book_id: @book.id, user_id: current_user.id), method: :delete, remote: true
+//        =link_to image_tag('dislike_before.png', size: '40x40', style: 'float: right', id: 'dislike', class: 'like-dislike'), new_like_book_path(book_id: @book.id, user_id: current_user.id, liking:false), method: :post, remote: true
+//      -else
+//        =link_to image_tag('like_before.png', size: '40x40', style: 'float: left', id: 'like', class: 'like-dislike'), new_like_book_path(book_id: @book.id, user_id: current_user.id, liking: true), method: :post, remote: true
+//        =link_to image_tag('dislike.png', size: '40x40', style: 'float: right', id: 'dislike', class: 'like-dislike'), delete_like_book_path(book_id: @book.id, user_id: current_user.id), method: :delete, remote: true
+//    -else
+//      =link_to image_tag('like_before.png', size: '40x40', style: 'float: left', id: 'like', class: 'like-dislike'), new_like_book_path(book_id: @book.id, user_id: current_user.id, liking: true), method: :post, remote: true
+//      =link_to image_tag('dislike_before.png', size: '40x40', style: 'float: right', id: 'dislike', class: 'like-dislike'), new_like_book_path(book_id: @book.id, user_id: current_user.id, liking:false), method: :post, remote: true
+//%>')

@@ -11,8 +11,8 @@ class Book
   field :title, type: String
   field :publishing_house, type: String
   field :year, type: Date
-  field :like, type: Integer
-  field :dislike, type: Integer
+  field :rating, type: Float
+  # field :dislike, type: Integer
   field :counter, type: Integer
 
   mount_uploader :image, FileUploader

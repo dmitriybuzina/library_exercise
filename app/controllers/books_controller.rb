@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [ :show, :edit, :update, :destroy, :take_return, :new_like, :delete_like ]
-  before_action :find_like, only: [ :new_like, :delete_like, :show ]
+  before_action :find_like, only: [ :new_like, :show ]
+  # before_action :average_rating, only: [:show]
 
   def index
     @books = Book.all.page(params[:page]).per(5)
@@ -13,6 +14,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.status = true #status in
+    @book.rating = 0
     redirect_to books_path if @book.save
   end
 
@@ -50,20 +52,27 @@ class BooksController < ApplicationController
   end
 
   def new_like
-    if !@old_like.nil?
-      @old_like.destroy
-    end
-    @like = Like.new(user_id: current_user.id, book_id: params[:id])
+    @old_like.destroy if !@old_like.nil?
+    @like = Like.new(user_id: current_user.id, book_id: params[:id], count_of_stars: like_params[:like])
     @like.save
   end
 
-  def delete_like
-    @old_like.destroy
+  private
+  def average_rating
+    likes = @book.likes
+    @rating = 0
+    likes.each do |like|
+      @rating += like.count_of_stars
+    end
+    @rating /= likes.count
   end
 
-  private
   def book_params
     params.require(:book).permit(:name, :author, :image, :description)
+  end
+
+  def like_params
+    params.require(:like).permit(:like)
   end
 
   def set_book
