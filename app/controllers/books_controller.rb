@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [ :show, :edit, :update, :destroy, :take_return, :new_like, :delete_like ]
+  before_action :set_book, only: [ :show, :edit, :update, :destroy, :take_return, :new_like ]
   before_action :find_like, only: [ :new_like, :show ]
-  # before_action :average_rating, only: [:show]
+  # after_action :set_book, only: [:new_like]
+  before_action :average_rating, only: [:show, :new_like]
 
   def index
     @books = Book.all.page(params[:page]).per(5)

@@ -22,3 +22,10 @@ $(window).on 'load', ->
 #  for r in radio
 #    if t.checked
 #      alert(r.value)
+
+#$(window).on 'click', ->
+#  radio = document.querySelectorAll('input[type=radio]')
+#  for r in radio
+#    if r.checked
+#      if r.click()
+#        submitedForm()

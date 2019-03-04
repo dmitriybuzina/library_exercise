@@ -2,44 +2,17 @@
   %h1
     =@book.name
   .row
-    .col-7
-      =render 'form_rating'
-      -#.stars
-      -#  -(1..5).each do |i|
-      -#    .star
-      -#      %input{ type: 'radio', id: "star#{i}" }
-      -#      %label{ for: "star#{i}" }
-
-      -#-if @book.is_liked_by(current_user.id)
-      -#  -if @old_like.liking
-      -#    .progress
-      -#      .progress-bar.blue{:id => "progress_like", "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "25", :role => "progressbar"}
-      -#      .progress-bar.grey{:id => "progress_dislike", "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "25", :role => "progressbar", :style => "float: right"}
-      -#  -else
-      -#    .progress
-      -#      .progress-bar.grey{:id => "progress_like", "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "25", :role => "progressbar"}
-      -#      .progress-bar.blue{:id => "progress_dislike", "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "25", :role => "progressbar", :style => "float: right"}
-      -#
-      -#.container-like
-      -#  -if @book.is_liked_by(current_user.id)
-      -#    -if @old_like.liking
-      -#      =link_to image_tag('like.png', size: '40x40', style: 'float: left', id: 'like', class: 'like-dislike'), delete_like_book_path(book_id: @book.id, user_id: current_user.id), method: :delete, remote: true
-      -#      =link_to image_tag('dislike_before.png', size: '40x40', style: 'float: right', id: 'dislike', class: 'like-dislike'), new_like_book_path(book_id: @book.id, user_id: current_user.id, liking:false), method: :post, remote: true
-      -#    -else
-      -#      =link_to image_tag('like_before.png', size: '40x40', style: 'float: left', id: 'like', class: 'like-dislike'), new_like_book_path(book_id: @book.id, user_id: current_user.id, liking: true), method: :post, remote: true
-      -#      =link_to image_tag('dislike.png', size: '40x40', style: 'float: right', id: 'dislike', class: 'like-dislike'), delete_like_book_path(book_id: @book.id, user_id: current_user.id), method: :delete, remote: true
-      -#  -else
-      -#    =link_to image_tag('like_before.png', size: '40x40', style: 'float: left', id: 'like', class: 'like-dislike'), new_like_book_path(book_id: @book.id, user_id: current_user.id, liking: true), method: :post, remote: true
-      -#    =link_to image_tag('dislike_before.png', size: '40x40', style: 'float: right', id: 'dislike', class: 'like-dislike'), new_like_book_path(book_id: @book.id, user_id: current_user.id, liking:false), method: :post, remote: true
-      -#  .count_like
-      -#    #count-like
-      -#      %label
-      -#        =@book.like
-      -#    #count-dislike
-      -#      %label
-      -#        =@book.dislike
-
-    .col-5
+    .col-8
+      .rating-stars
+        =render 'form_rating', rating: @rating
+        -if @book.is_liked_by(current_user.id)
+          .rating-count
+            %p
+              You put
+              %span
+                =@old_like.count_of_stars
+              stars
+    .col-4
       .book-action
         =button_to "#{ @book.status ? 'Take' : @book.is_taken_by(current_user.id) ? 'Return' : 'Busy'}", take_return_book_path(@book), id: 'action-book', method: :post, remote: true, class: "btn btn-#{ @book.status ? 'primary' : 'secondary' }"
   .image-description

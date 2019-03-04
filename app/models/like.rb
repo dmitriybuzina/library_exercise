@@ -11,13 +11,12 @@ class Like
   private
   def rating
     if self.count_of_stars
-      rating = 0
+      self.book.rating = 0
       self.book.likes.each do |like|
-        rating += like.count_of_stars
+        self.book.rating += like.count_of_stars
       end
-      rating /= self.book.likes.count
-      self.book.rating = rating
-      puts self.book.rating
+      self.book.rating /= self.book.likes.count
+      self.book.save
     end
   end
 

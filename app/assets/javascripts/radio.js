@@ -8,3 +8,4 @@ function submitedForm() {
   // }
   $('#send-like').submit()
 }
+
