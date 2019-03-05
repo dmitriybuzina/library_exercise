@@ -4,7 +4,8 @@
   .row
     .col-8
       .rating-stars
-        =render 'form_rating', rating: @rating
+        #form-rating
+          =render 'form_rating', book: @book
         -if @book.is_liked_by(current_user.id)
           .rating-count
             %p

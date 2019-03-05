@@ -8,10 +8,14 @@
         Home
         %span.sr-only (current)
       %a.nav-item.nav-link{ href: books_path } Books
-      %a.nav-item.nav-link{ href: "#"} Authors
+      %a.nav-item.nav-link{ href: "#" } Authors
       -if(current_user)
         -#%a.nav-item.nav-link{ href: destroy_user_session_path, method: :delete } Logout
-        %a.nav-item
-          =link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link'
+        %li.nav-item.dropdown
+          %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}
+            Dropdown link
+          .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
+            =link_to 'Log out', destroy_user_session_path, method: :delete
+            =link_to 'Settings', edit_user_registration_path, method: :get
       -else
         %a.nav-item.nav-link{ href: new_user_session_path } Login

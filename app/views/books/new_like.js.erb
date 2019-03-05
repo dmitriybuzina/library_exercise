@@ -1,2 +1,2 @@
+$("#form-rating").html("<%= j render 'books/form_rating', book: @book.reload %>");
 $('.rating-count span').html("<%= @like.count_of_stars %>");
-$(".stars").html("<%= j render 'books/form_rating', rating: @rating %>")

@@ -1,0 +1,19 @@
+.avatar-input {
+  text-align: center;
+}
+
+.avatar-input input {
+  display: none;
+}
+
+.avatar-input label {
+  cursor: pointer;
+  width: 150px;
+  height: 200px;
+  content: url("avatar_90929.png");
+}
+
+.page-log-in {
+  max-width: 90%;
+  margin: auto;
+}
