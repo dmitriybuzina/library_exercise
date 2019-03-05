@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [ :show, :edit, :update, :destroy, :take_return, :new_like ]
   before_action :find_like, only: [ :new_like, :show ]
   # after_action :set_book, only: [:new_like]
-  before_action :average_rating, only: [:show, :new_like]
+  # before_action :average_rating, only: [:show, :new_like]
 
   def index
     @books = Book.all.page(params[:page]).per(5)
@@ -59,14 +59,14 @@ class BooksController < ApplicationController
   end
 
   private
-  def average_rating
-    likes = @book.likes
-    @rating = 0
-    likes.each do |like|
-      @rating += like.count_of_stars
-    end
-    @rating /= likes.count
-  end
+  # def average_rating
+  #   likes = @book.likes
+  #   @rating = 0
+  #   likes.each do |like|
+  #     @rating += like.count_of_stars
+  #   end
+  #   @rating /= likes.count
+  # end
 
   def book_params
     params.require(:book).permit(:name, :author, :image, :description)
