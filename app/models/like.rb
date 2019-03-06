@@ -6,7 +6,7 @@ class Like
   belongs_to :book, counter_cache: :counter
 
   after_create :rating
-  # after_destroy :decrement_count_like
+  # after_destroy :rating
 
   private
   def rating

@@ -39,6 +39,11 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+
+  #Test
+  gem 'faker'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -77,3 +82,10 @@ gem 'mini_magick'
 gem 'kaminari-mongoid'
 gem 'kaminari-actionview'
 gem 'bootstrap4-kaminari-views'
+
+#tesing
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+end
+
