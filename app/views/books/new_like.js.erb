@@ -1,2 +1,3 @@
 $("#form-rating").html("<%= j render 'books/form_rating', book: @book.reload %>");
-$('.rating-count span').html("<%= @like.count_of_stars %>");
+document.getElementById('rating-count').style.visibility = 'visible'
+$('#rating-count span').html("<%= @like.count_of_stars %>");

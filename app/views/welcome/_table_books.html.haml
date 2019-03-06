@@ -1,20 +1,20 @@
 .row
   .col-12.col-sm-12
-    %table.table-dark.table-hover.table-sm{border: 1}
+    %table.table-striped.table-hover.table-sm{ border: 1 }
       %thead
         %tr
-          %th{scope: 'col'}
+          %th{ scope: 'col' }
             Name
-          %th{scope: 'col'}
+          %th{ scope: 'col' }
             Author
-          %th{scope: 'col'}
+          %th{ scope: 'col' }
             Status
       %tbody
-        - books.each do |book|
-          %tr{scope: 'row'}
+        -books.each do |book|
+          %tr{ scope: 'row' }
             %td
               -if(book.name)
-                =link_to(book.name, book_path(book))
+                =link_to(book.name, book_path(book), class: 'decor')
             %td
               = book.author
             %td

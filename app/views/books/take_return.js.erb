@@ -1,9 +1,10 @@
 <% if @book.status %>
   document.getElementById("action-book").value = "Take"
   $("#action-book").removeClass('btn-secondary').addClass('btn-primary')
-  $("#book-histories table").html("<%= escape_javascript(render partial: 'books/histories', locals: { histories: @histories}) %>")
+  $("#book-histories table").html("<%= escape_javascript(render 'books/histories', locals: { histories: @histories }) %>")
 <% else %>
   document.getElementById("action-book").value = "Return"
   $("#action-book").removeClass('btn-primary').addClass('btn-secondary')
-  $("#book-histories table").html("<%= escape_javascript(render partial: 'books/histories', locals: { histories: @histories}) %>")
+  document.getElementById('book-histories').style.visibility = 'visible'
+  $("#book-histories table").html("<%= escape_javascript(render 'books/histories', locals: { histories: @histories }) %>")
 <% end %>

@@ -2,15 +2,17 @@
   text-align: center;
 }
 
-.avatar-input input {
-  display: none;
-}
+.no-avatar {
+  label {
+    cursor: pointer;
+    width: 150px;
+    height: 200px;
+    content: url("avatar_90929.png");
+  }
 
-.avatar-input label {
-  cursor: pointer;
-  width: 150px;
-  height: 200px;
-  content: url("avatar_90929.png");
+  input {
+    display: none;
+  }
 }
 
 .page-log-in {

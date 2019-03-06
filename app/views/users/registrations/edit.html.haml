@@ -4,10 +4,14 @@
     = bootstrap_devise_error_messages!
     .avatar-input
       - if current_user.avatar.url.present?
-        = image_tag(current_user.avatar.url)
+        .avatar
+          = image_tag(current_user.avatar.url)
+        = f.label :remove_avatar do
+          = f.check_box :remove_avatar, title: 'Check to delete'
       - else
-        %label{ for: 'file-input' }
-        = f.file_field :avatar, id: 'file-input'
+        .no-avatar
+          %label{ for: 'file-input' }
+          = f.file_field :avatar, id: 'file-input'
     .form-group
       = f.label :email
       = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'

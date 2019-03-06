@@ -1,5 +1,9 @@
 .container-comment
-  %p
+  .icon-comment
+    =image_tag(comment.user.avatar.url, class: 'img-rounded', size: '40x40')
+  .name-date
     %strong
       =comment.user.username
+    %br
+      =comment.created_at.strftime("%Y-%m-%d")
     =comment.body

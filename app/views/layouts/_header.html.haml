@@ -10,12 +10,13 @@
       %a.nav-item.nav-link{ href: books_path } Books
       %a.nav-item.nav-link{ href: "#" } Authors
       -if(current_user)
-        -#%a.nav-item.nav-link{ href: destroy_user_session_path, method: :delete } Logout
         %li.nav-item.dropdown
-          %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}
-            Dropdown link
-          .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
-            =link_to 'Log out', destroy_user_session_path, method: :delete
-            =link_to 'Settings', edit_user_registration_path, method: :get
+          %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{ "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#" }
+            Profile
+          .dropdown-menu.bg-dark{ "aria-labelledby" => "navbarDropdownMenuLink" }
+            %a.nav-item.nav-link{ href: edit_user_registration_path, method: :get } Account
+            %a.nav-item.nav-link{ href: destroy_user_session_path, method: :delete } Log out
+            -#=link_to 'Log out', destroy_user_session_path, method: :delete
+            -#=link_to 'Settings', edit_user_registration_path, method: :get
       -else
         %a.nav-item.nav-link{ href: new_user_session_path } Login

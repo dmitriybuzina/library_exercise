@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
 
   def index
     @comments = @book.comments.all
+
   end
 
   def new

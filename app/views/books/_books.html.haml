@@ -10,16 +10,14 @@
       %strong
         Author:
       =book.author
-    -if(book.publishing_house)
-      %p
-        %strong
-          Publishing house:
-        =book.publishing_house
-    -if(book.year)
-      %p
-        %strong
-          Year:
-        =book.year
+    %p
+      %strong
+        Publishing house:
+      =book.publishing_house if book.publishing_house
+    %p
+      %strong
+        Year:
+      =book.year if book.year
     %p
       .row
         =button_to 'Delete', book_path(book), method: :delete, id: 'delete-book', class: 'btn btn-primary', remote: true

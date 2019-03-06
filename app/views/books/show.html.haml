@@ -6,13 +6,12 @@
       .rating-stars
         #form-rating
           =render 'form_rating', book: @book
-        -if @book.is_liked_by(current_user.id)
-          .rating-count
-            %p
-              You put
-              %span
-                =@old_like.count_of_stars
-              stars
+        #rating-count{ style: "visibility: #{ @book.is_liked_by(current_user.id) ? 'visible' : 'hidden' }" }
+          %p
+            You put
+            %span
+              =@old_like.count_of_stars if @old_like
+            stars
     .col-4
       .book-action
         =button_to "#{ @book.status ? 'Take' : @book.is_taken_by(current_user.id) ? 'Return' : 'Busy'}", take_return_book_path(@book), id: 'action-book', method: :post, remote: true, class: "btn btn-#{ @book.status ? 'primary' : 'secondary' }"
@@ -31,9 +30,8 @@
     =render @book.comments
   =render 'comments/form'
 
-  -if(@histories.length != 0)
-    #book-histories
-      .row
-        .col-12.col-sm-12
-          =render 'books/histories', histories: @histories
+  #book-histories{ style: "visibility: #{ @histories.length != 0 ? 'visible' : 'hidden' }" }
+    .row
+      .col-12.col-sm-12
+        =render 'books/histories', histories: @histories
 
