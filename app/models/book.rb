@@ -8,14 +8,13 @@ class Book
   field :author, type: String
   field :status, type: Boolean
   field :description, type: String
-  field :title, type: String
   field :publishing_house, type: String
   field :year, type: Date
   field :rating, type: Float
-  # field :dislike, type: Integer
   field :counter, type: Integer
-
   mount_uploader :image, FileUploader
+
+  validates_presence_of :name
 
   def is_taken_by(user_id)
     histories.where(user_id: user_id, return: nil).exists?

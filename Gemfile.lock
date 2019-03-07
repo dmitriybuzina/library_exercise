@@ -297,7 +297,7 @@ DEPENDENCIES
   bootstrap (~> 4.2.1)
   bootstrap4-kaminari-views
   byebug
-  capybara (~> 2.13)
+  capybara
   carrierwave-mongoid
   chromedriver-helper
   coffee-rails (~> 4.2)

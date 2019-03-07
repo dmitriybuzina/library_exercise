@@ -11,7 +11,11 @@
 # a separate helper file that requires the additional dependencies and performs
 # the additional setup, and require it from the spec files that actually need
 # it.
-#
+
+
+require 'capybara/rspec'
+# require 'capybara/rails'
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -93,4 +97,20 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  Capybara.register_driver :selenium do |app|
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+  end
+
+  Capybara.javascript_driver = :chrome
+
+  Capybara.configure do |config|
+    config.default_max_wait_time = 3 # seconds
+    config.default_driver        = :selenium
+  end
+
+  config.before(:each, type: :feature) do
+    # Note (Mike Coutermarsh): Make browser huge so that no content is hidden during tests
+    Capybara.current_session.driver.browser.manage.window.resize_to(2_500, 2_500)
+  end
 end
