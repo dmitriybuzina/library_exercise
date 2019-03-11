@@ -1,0 +1,4 @@
+document.getElementById("action-book").value = "Return"
+$("#action-book").removeClass('btn-primary').addClass('btn-secondary')
+document.getElementById('book-histories').style.visibility = 'visible'
+$("#book-histories table").html("<%= escape_javascript(render 'books/histories', locals: { histories: @histories }) %>")

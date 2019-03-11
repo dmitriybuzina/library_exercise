@@ -1,0 +1,6 @@
+=form_with(model: [ @book, @book.likes.build ], remote: true, url: book_likes_path(book_id: @book.id, user_id: current_user.id )) do |form|
+  %fieldset.stars
+    -(1..5).each do |i|
+      =form.radio_button :count_of_stars, 6 - i, id: "star#{ 6 - i }", checked: 6 - i == book.rating.round ? true : false, onclick: 'submitedForm()'
+      =form.label :like, for: "star#{ 6 - i }"
+  =form.submit style: 'display: none;', id: 'send-like'

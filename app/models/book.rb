@@ -6,11 +6,11 @@ class Book
 
   field :name, type: String
   field :author, type: String
-  field :status, type: Boolean
+  field :available, type: Boolean, default: true
   field :description, type: String
   field :publishing_house, type: String
   field :year, type: Date
-  field :rating, type: Float
+  field :rating, type: Float, default: 0
   field :counter, type: Integer
   mount_uploader :image, FileUploader
 

@@ -5,16 +5,15 @@
     .col-8
       .rating-stars
         #form-rating
-          =render 'form_rating', book: @book
+          =render 'likes/form', book: @book
         #rating-count{ style: "visibility: #{ @book.is_liked_by(current_user.id) ? 'visible' : 'hidden' }" }
-          %p
-            You put
-            %span
-              =@old_like.count_of_stars if @old_like
-            stars
+          =render 'likes/count_stars', like: @like
     .col-4
       .book-action
-        =button_to "#{ @book.status ? 'Take' : @book.is_taken_by(current_user.id) ? 'Return' : 'Busy'}", take_return_book_path(@book), id: 'action-book', method: :post, remote: true, class: "btn btn-#{ @book.status ? 'primary' : 'secondary' }"
+        -if @book.available
+          =button_to 'Take', take_book_path(@book), id: 'action-book', method: :put, remote: true, class: 'btn btn-primary'
+        -else
+          =button_to "#{ @book.is_taken_by(current_user.id) ? 'Return' : 'Busy' }", return_book_path(@book), id: 'action-book', method: :put, remote: true, class: 'btn btn-secondary'
   .image-description
     .row
       .col-6
@@ -34,4 +33,3 @@
     .row
       .col-12.col-sm-12
         =render 'books/histories', histories: @histories
-

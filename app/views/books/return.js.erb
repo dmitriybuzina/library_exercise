@@ -1,0 +1,3 @@
+document.getElementById("action-book").value = "Take"
+$("#action-book").removeClass('btn-secondary').addClass('btn-primary')
+$("#book-histories table").html("<%= escape_javascript(render 'books/histories', locals: { histories: @histories }) %>")

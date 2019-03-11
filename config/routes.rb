@@ -8,9 +8,8 @@ Rails.application.routes.draw do
   }
   resources :books do
     resources :comments
-    post 'take_return', on: :member
-    # post 'return', on: :member
-    post 'new_like', on: :member
-    # put 'delete_like', on: :member
+    resources :likes
+    put 'take', on: :member
+    put 'return', on: :member
   end
 end
