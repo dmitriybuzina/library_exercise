@@ -11,9 +11,9 @@ class User
   has_many :likes
 
   ## Database authenticatable
-  field :email,              type: String, default: ""
-  field :encrypted_password, type: String, default: ""
-  field :username,           type: String, default: ""
+  field :email,              type: String, default: ''
+  field :encrypted_password, type: String, default: ''
+  field :username,           type: String, default: ''
 
   mount_uploader :avatar, AvatarUploader
 

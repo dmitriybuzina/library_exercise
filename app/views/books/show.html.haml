@@ -6,14 +6,15 @@
       .rating-stars
         #form-rating
           =render 'likes/form', book: @book
-        #rating-count{ style: "visibility: #{ @book.is_liked_by(current_user.id) ? 'visible' : 'hidden' }" }
+        #rating-count{ style: "visibility: #{ @book.liked_by?(current_user.id) ? 'visible' : 'hidden' }" }
           =render 'likes/count_stars', like: @like
     .col-4
       .book-action
         -if @book.available
           =button_to 'Take', take_book_path(@book), id: 'action-book', method: :put, remote: true, class: 'btn btn-primary'
         -else
-          =button_to "#{ @book.is_taken_by(current_user.id) ? 'Return' : 'Busy' }", return_book_path(@book), id: 'action-book', method: :put, remote: true, class: 'btn btn-secondary'
+          =button_to "#{ @book.taken_by?(current_user.id) ? 'Return' : 'Busy' }", return_book_path(@book), id: 'action-book', method: :put, remote: true,
+            class: "#{ @book.taken_by?(current_user.id) ? 'btn btn-secondary' : 'btn btn-secondary disabled' }"
   .image-description
     .row
       .col-6
@@ -25,8 +26,9 @@
         .description
           %p
             =@book.description
-  #book-comments
-    =render @book.comments
+  .table-wrapper-scroll-y
+    #book-comments
+      =render @comments
   =render 'comments/form'
 
   #book-histories{ style: "visibility: #{ @histories.length != 0 ? 'visible' : 'hidden' }" }

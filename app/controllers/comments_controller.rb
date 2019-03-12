@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_book, only: [ :index, :create ]
+  before_action :set_book, only: %i[index create]
 
   def index
     @comments = @book.comments.all
@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
   end
 
   private
+
   def set_book
     @book = Book.find(params[:book_id])
   end
@@ -23,5 +24,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:body, :book_id)
   end
-
 end

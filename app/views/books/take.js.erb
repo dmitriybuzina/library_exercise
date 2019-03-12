@@ -1,4 +1,6 @@
-document.getElementById("action-book").value = "Return"
-$("#action-book").removeClass('btn-primary').addClass('btn-secondary')
+$(".book-action").html(
+    '<%= button_to "#{ @book.taken_by?(current_user.id) ? 'Return' : 'Busy' }", return_book_path(@book), id: 'action-book',
+    method: :put, remote: true, class: 'btn btn-secondary' %>'
+)
 document.getElementById('book-histories').style.visibility = 'visible'
-$("#book-histories table").html("<%= escape_javascript(render 'books/histories', locals: { histories: @histories }) %>")
+$("#book-histories table").html("<%= escape_javascript(render 'books/histories', histories: @histories ) %>")

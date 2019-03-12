@@ -41,7 +41,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 
-  #Test
+  # test
   gem 'faker'
   gem 'database_cleaner'
 end
@@ -58,32 +58,32 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#mongodb
+# mongodb
 gem 'mongoid', '~> 7.0'
 
-#haml
+# haml
 gem 'haml-rails', '~> 1.0'
 
-#users
+# users
 gem 'devise'
 
-#bootstrap
+# bootstrap
 gem 'bootstrap', '~> 4.2.1'
 gem 'devise-bootstrap-views', '~> 1.0'
 
-#jquery
+# jquery
 gem 'jquery-rails'
 
-#upload image
+# upload image
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mini_magick'
 
-#pagination
+# pagination
 gem 'kaminari-mongoid'
 gem 'kaminari-actionview'
 gem 'bootstrap4-kaminari-views'
 
-#tesing
+# tesing
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'

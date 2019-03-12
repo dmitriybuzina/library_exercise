@@ -1,0 +1,12 @@
+.form
+  =form_with(model: @author) do |form|
+    .form-group
+      =form.label :name
+      =form.text_field :first_name, class: 'form_control'
+    .form-group
+      =form.label :surname
+      =form.text_field :last_name, class: 'form_control'
+    .form-group
+      =form.label :date_of_birthday
+      =form.date_field :date_of_birthday
+    =form.submit 'Create author', class: 'btn btn-primary'

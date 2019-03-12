@@ -1,9 +1,8 @@
 class LikesController < ApplicationController
-  before_action :set_book, only: [:create, :show]
+  before_action :set_book, only: %i[create show]
   before_action :find_like
 
-  def index
-  end
+  def index; end
 
   def new
     @like = Like.new
@@ -16,17 +15,16 @@ class LikesController < ApplicationController
     @like.save
   end
 
-  def update
-  end
+  def update; end
 
-  def show
-  end
+  def show; end
 
   def destroy
     @like.destroy
   end
 
   private
+
   def set_book
     @book = Book.find(params[:book_id])
   end
