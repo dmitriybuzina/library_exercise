@@ -5,10 +5,8 @@
       =form.text_field :name, class: 'form-control'
     .form-group
       =form.label :author
-      -#=form.text_field :author, class: 'form-control'
-      =form.collection_select :author_id, Author.all, :id, :last_name, class: 'form-control'
-      =form.label 'or create new'
-      =link_to 'Author', new_author_path
+      =form.text_field :author, class: 'form-control'
+      -#=form.collection_select :author, Author.all, :id, :last_name, class: 'form-control'
     .form-group
       =form.label :year
       =form.text_field :year, class: 'form-control'

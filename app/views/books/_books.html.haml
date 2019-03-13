@@ -9,8 +9,7 @@
     %p
       %strong
         Author:
-      -#=book.author.last_name if book.author.last_name
-      -#=book.author.first_name if book.author.first_name
+      =book.author if book.author
     %p
       %strong
         Publishing house:

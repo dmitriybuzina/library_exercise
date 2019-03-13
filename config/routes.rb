@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     passwords: 'users/passwords'
   }
-  resources :authors
   resources :books do
     resources :comments
     resources :likes

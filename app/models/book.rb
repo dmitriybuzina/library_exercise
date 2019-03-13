@@ -3,9 +3,9 @@ class Book
   has_many :histories, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  belongs_to :author
 
   field :name, type: String
+  field :author, type: String
   field :available, type: Boolean, default: true
   field :description, type: String
   field :publishing_house, type: String
