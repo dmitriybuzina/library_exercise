@@ -7,10 +7,12 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     passwords: 'users/passwords'
   }
+
   resources :books do
     resources :comments
     resources :likes
     put 'take', on: :member
     put 'return', on: :member
+    get :search, on: :collection
   end
 end

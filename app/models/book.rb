@@ -24,4 +24,9 @@ class Book
   def liked_by?(user_id)
     likes.where(user_id: user_id).exists?
   end
+
+  def self.search(search)
+    # where(name: search)
+    Book.where({name:/.*#{search}.*/})
+  end
 end
