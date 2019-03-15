@@ -9,6 +9,7 @@
         %span.sr-only (current)
       %a.nav-item.nav-link{ href: books_path } Books
       %a.nav-item.nav-link{ href: search_books_path } Search
+      = render 'books/form_search'
       -if(current_user)
         %li.nav-item.dropdown
           %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{ "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#" }

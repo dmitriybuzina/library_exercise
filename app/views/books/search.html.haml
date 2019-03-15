@@ -1,5 +1,6 @@
 =render 'form_search'
 
 -if @search_books
-  -@search_books.each do |book|
-    =book.name
+  .container-books
+    -@search_books.each do |book|
+      =render 'books/books', book: book

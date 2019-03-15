@@ -2,7 +2,9 @@
 -#  =form.text_field :search, value: params[:search]
 -#  =form.submit 'Search'
 
-= form_tag search_books_path, :method => 'get' do
-  %p
-    = text_field_tag :search, params[:search]
-    = submit_tag "Search", :title => nil
+= form_tag search_books_path, method: :get, class: 'form-inline justify-content-center my-2 my-lg-0' do
+  .form-row
+    .col-8
+      = text_field_tag :search, params[:search], class: 'form-control'
+    .col-4
+      = submit_tag "Search", :title => nil, class: 'btn btn-outline-success'

@@ -52,9 +52,6 @@ class BooksController < ApplicationController
 
   def search
     @books = Book.all
-    puts 'aaaaaaaaaaaaaaaaaaaaaaaa'
-    puts params[:search]
-    puts 'aaaaaaaaaaaaaaaaaaaaaaaa'
     if params[:search]
       @search_books = Book.search(params[:search])
     end
