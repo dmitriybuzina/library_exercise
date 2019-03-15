@@ -27,5 +27,19 @@ RSpec.describe Book, type: :model do
       expect(FactoryBot.build :book, name: nil ).not_to be_valid
     end
   end
+
+  describe 'Association' do
+    it 'has many histories' do
+      expect(:book).to respond_to :histories
+    end
+
+    it 'has many likes' do
+      expect(:book).to respond_to :likes
+    end
+
+    it 'has many likes' do
+      expect(Book.reflect_on_association(:likes).macro).to eq(:has_many)
+    end
+  end
   
 end
