@@ -7,7 +7,7 @@ class User
          :recoverable, :rememberable, :validatable
 
   has_many :comments
-  has_many :history
+  has_many :histories
   has_many :likes
 
   ## Database authenticatable
@@ -16,6 +16,8 @@ class User
   field :username,           type: String, default: ''
 
   mount_uploader :avatar, AvatarUploader
+
+  validates_presence_of :email, :encrypted_password, :username
 
   ## Recoverable
   field :reset_password_token,   type: String

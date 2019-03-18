@@ -3,7 +3,7 @@ class Like
   field :count_of_stars, type: Integer
   belongs_to :user
   belongs_to :book, counter_cache: :counter
-
+  validates_presence_of :count_of_stars
   after_create :rating
 
   private
