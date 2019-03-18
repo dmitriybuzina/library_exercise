@@ -1,19 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe History, type: :model do
-  let(:history) { FactoryBot.create(:history) }
+RSpec.describe Like, type: :model do
+  let(:like) { FactoryBot.create(:like) }
 
   describe 'Be mongoid document' do
     it { is_expected.to be_mongoid_document }
   end
 
   describe 'Validation' do
-    it 'is not valid without take' do
-      expect(FactoryBot.build :history, take: nil).not_to be_valid
-    end
-
-    it 'is valid without return' do
-      expect(FactoryBot.build :history, return: nil).to be_valid
+    it 'is not valid without count of stars' do
+      expect(FactoryBot.build :like, count_of_stars: nil).not_to be_valid
     end
   end
 

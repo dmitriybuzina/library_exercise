@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :comment do |f|
-    f.body { Faker::Lorem.sentence }
+  factory :like do |f|
+    f.count_of_stars { Faker::Number.between(1, 5) }
     association :user, factory: :user
     association :book, factory: :book
   end

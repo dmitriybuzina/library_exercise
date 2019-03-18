@@ -14,6 +14,7 @@
 
 
 require 'capybara/rspec'
+require 'rails/mongoid'
 # require 'capybara/rails'
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration

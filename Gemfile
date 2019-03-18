@@ -85,6 +85,7 @@ gem 'bootstrap4-kaminari-views'
 
 # tesing
 group :development, :test do
+  gem 'mongoid-rspec'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
 end

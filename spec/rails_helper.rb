@@ -3,6 +3,7 @@ require 'spec_helper'
 require 'capybara/rspec'
 # require 'capybara/rails'
 require 'database_cleaner'
+require 'mongoid-rspec'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
@@ -37,6 +38,8 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.include Mongoid::Matchers, type: :model
 
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
